@@ -1,0 +1,60 @@
+version: '3.5'
+services:
+  nodered:
+    container_name: nodered-ew
+    image: nodered/node-red:latest-22
+    ports:
+      - 1880:1880
+    volumes:
+      - ./data:/data
+      - ./settings.js:/data/settings.js
+    environment:
+      TZ: "America/Sao_Paulo"
+    links:
+      - postgres
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:14
+    environment:
+      POSTGRES_DB: ewacademy
+      POSTGRES_USER: erickwendel
+      POSTGRES_PASSWORD: erick
+      TZ: "America/Sao_Paulo"
+      PGTZ: "America/Sao_Paulo"
+    ports:
+      - "5432"
+
+  postgres-init:
+    image: postgres:14
+    container_name: postgres-init
+    depends_on:
+      - postgres
+    environment:
+      POSTGRES_USER: erickwendel
+      POSTGRES_PASSWORD: erick
+    volumes:
+      - ./init-metabase.sh:/docker-entrypoint-initdb.d/init-metabase.sh
+    entrypoint: ["/bin/bash", "/docker-entrypoint-initdb.d/init-metabase.sh"]
+    restart: "no"
+
+
+  metabase:
+    # building metabase from source as it's not available on ARM
+    build: ./metabase
+    environment:
+      MB_DB_TYPE: postgres
+      MB_DB_DBNAME: metabase
+      MB_DB_PORT: "5432"
+      MB_DB_USER: erickwendel
+      MB_DB_PASS: erick
+      MB_DB_HOST: postgres
+      MB_ENCRYPTION_SECRET_KEY: "abc123abc123abc123abc123"
+      # limit memory usage to 900MB
+      JAVA_OPTS: "-Xmx900m"
+    depends_on:
+      - postgres
+      - postgres-init
+    ports:
+      - "3000:3000"

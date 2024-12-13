@@ -1,0 +1,521 @@
+[
+    {
+        "id": "9f596410aa34be82",
+        "type": "tab",
+        "label": "Students",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "d6e00ead8a489696",
+        "type": "group",
+        "z": "9f596410aa34be82",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "6c401bd81df934f3",
+            "97ab4d4f5138647c",
+            "beed03c4141b46e6",
+            "1aa458f02486822e"
+        ],
+        "x": 94,
+        "y": 59,
+        "w": 252,
+        "h": 202
+    },
+    {
+        "id": "bf4ad5c8135f58c2",
+        "type": "group",
+        "z": "9f596410aa34be82",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "2954a7dd3efc9c82",
+            "7a0fa2a7cb960bd4",
+            "939367e7052a2f50",
+            "ce64a567d76bedb5"
+        ],
+        "x": 394,
+        "y": 39,
+        "w": 342,
+        "h": 222
+    },
+    {
+        "id": "7b388c7d878457b7",
+        "type": "group",
+        "z": "9f596410aa34be82",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "efd05287983205f0",
+            "1ed77cbd917f01d4",
+            "9a481695fe9b6acc",
+            "4003eb6ad625bdb7",
+            "584eb90e9af04dd6",
+            "62b98b3ea906e33d",
+            "8a0811a143225838",
+            "8ffd1ba6a684326b"
+        ],
+        "x": 54,
+        "y": 339,
+        "w": 892,
+        "h": 462
+    },
+    {
+        "id": "46264e5862023d8d",
+        "type": "group",
+        "z": "9f596410aa34be82",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "7c0f322b96f44819",
+            "0cf43dbce548c7c7",
+            "c1fcf9baea537909",
+            "390b27dcaa6419f7",
+            "5d69f6743d2cbeae"
+        ],
+        "x": 64,
+        "y": 819,
+        "w": 792,
+        "h": 122
+    },
+    {
+        "id": "6c401bd81df934f3",
+        "type": "http in",
+        "z": "9f596410aa34be82",
+        "g": "d6e00ead8a489696",
+        "name": "",
+        "url": "/hello",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 180,
+        "y": 140,
+        "wires": [
+            [
+                "97ab4d4f5138647c"
+            ]
+        ]
+    },
+    {
+        "id": "97ab4d4f5138647c",
+        "type": "change",
+        "z": "9f596410aa34be82",
+        "g": "d6e00ead8a489696",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "hello world",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 220,
+        "y": 180,
+        "wires": [
+            [
+                "beed03c4141b46e6"
+            ]
+        ]
+    },
+    {
+        "id": "beed03c4141b46e6",
+        "type": "http response",
+        "z": "9f596410aa34be82",
+        "g": "d6e00ead8a489696",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 230,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "1aa458f02486822e",
+        "type": "comment",
+        "z": "9f596410aa34be82",
+        "g": "d6e00ead8a489696",
+        "name": "hello world endpoint",
+        "info": "",
+        "x": 230,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "2954a7dd3efc9c82",
+        "type": "inject",
+        "z": "9f596410aa34be82",
+        "g": "bf4ad5c8135f58c2",
+        "name": "",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 490,
+        "y": 120,
+        "wires": [
+            [
+                "7a0fa2a7cb960bd4"
+            ]
+        ]
+    },
+    {
+        "id": "7a0fa2a7cb960bd4",
+        "type": "http request",
+        "z": "9f596410aa34be82",
+        "g": "bf4ad5c8135f58c2",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://localhost:1880/hello",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 550,
+        "y": 180,
+        "wires": [
+            [
+                "939367e7052a2f50"
+            ]
+        ]
+    },
+    {
+        "id": "939367e7052a2f50",
+        "type": "debug",
+        "z": "9f596410aa34be82",
+        "g": "bf4ad5c8135f58c2",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 630,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "ce64a567d76bedb5",
+        "type": "comment",
+        "z": "9f596410aa34be82",
+        "g": "bf4ad5c8135f58c2",
+        "name": "hello world endpoint debugger",
+        "info": "",
+        "x": 550,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "efd05287983205f0",
+        "type": "knex-node",
+        "z": "9f596410aa34be82",
+        "g": "7b388c7d878457b7",
+        "connection": "7e12b26bfe008698",
+        "x": 210,
+        "y": 480,
+        "wires": [
+            [
+                "62b98b3ea906e33d"
+            ]
+        ]
+    },
+    {
+        "id": "1ed77cbd917f01d4",
+        "type": "inject",
+        "z": "9f596410aa34be82",
+        "g": "7b388c7d878457b7",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 420,
+        "wires": [
+            [
+                "efd05287983205f0"
+            ]
+        ]
+    },
+    {
+        "id": "9a481695fe9b6acc",
+        "type": "google-sheets-to-json-stream",
+        "z": "9f596410aa34be82",
+        "g": "7b388c7d878457b7",
+        "config": "9f88a780973e5923",
+        "sheetId": "1WkI0D2hcHMWdtnXgsEkID7UKJLQ6OWegwDNqCeWzLIs",
+        "sheetList": "developers-github",
+        "sheetListValues": "[{\"text\":\"developers-github\",\"value\":\"developers-github\",\"selected\":true}]",
+        "range": "A1:F3830",
+        "columns": "[\"developers\",\"iso2_code\",\"year\",\"quarter\"]",
+        "name": "",
+        "x": 390,
+        "y": 600,
+        "wires": [
+            [
+                "584eb90e9af04dd6"
+            ]
+        ]
+    },
+    {
+        "id": "4003eb6ad625bdb7",
+        "type": "function",
+        "z": "9f596410aa34be82",
+        "g": "7b388c7d878457b7",
+        "name": "insert user",
+        "func": "const {knex, payload } = msg \n\nconst { developers, ...remainingPayload } = payload\nconst statusEnabled = false\ntry {\n    await knex('yearlyDevelopers')\n        .insert({...remainingPayload, count: developers})\n    msg.payload = { result: 'success' }\n    if(statusEnabled)\n     node.status({ fill: \"green\", shape: \"ring\", text: `success processing ${payload.country}` });\n} catch (error) {\n    msg.payload = { result: 'error' }\n    if(statusEnabled)\n      node.status({fill:\"red\",shape:\"ring\",text: `error processing ${payload.country}`});\n};\n\n    \n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 550,
+        "y": 720,
+        "wires": [
+            [
+                "8a0811a143225838"
+            ]
+        ]
+    },
+    {
+        "id": "584eb90e9af04dd6",
+        "type": "function",
+        "z": "9f596410aa34be82",
+        "g": "7b388c7d878457b7",
+        "name": "map country code to name",
+        "func": "const { payload } = msg \n\nconst displayNamesBR = new Intl.DisplayNames(['pt-BR'], \n    { type: 'region' }\n);\n\nfunction getCountryName(code) {\n    return displayNamesBR.of(code)\n}\n\n\nreturn {\n    ...msg,\n    payload: {\n        ...payload,\n        country: getCountryName(payload.iso2_code)\n    }\n};",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 660,
+        "wires": [
+            [
+                "4003eb6ad625bdb7"
+            ]
+        ]
+    },
+    {
+        "id": "8a0811a143225838",
+        "type": "debug",
+        "z": "9f596410aa34be82",
+        "g": "7b388c7d878457b7",
+        "name": "debug 3",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 840,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "62b98b3ea906e33d",
+        "type": "function",
+        "z": "9f596410aa34be82",
+        "g": "7b388c7d878457b7",
+        "name": "create tables",
+        "func": "const knex = msg.knex \n\nawait knex.schema.dropTableIfExists('yearlyDevelopers');\n\nawait knex.schema.createTable('yearlyDevelopers', function (table) {\n    table.increments('id').primary(); // Auto-incrementing primary key\n    table.integer('count').notNullable(); // Developer names or IDs\n    table.string('iso2_code', 2).notNullable(); // 2-character ISO country code\n    table.string('country').notNullable(); // 2-character ISO country code\n    table.integer('year').notNullable(); // Year\n    table.integer('quarter').notNullable(); // Quarter (1-4)\n});\n\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 270,
+        "y": 540,
+        "wires": [
+            [
+                "9a481695fe9b6acc"
+            ]
+        ]
+    },
+    {
+        "id": "7c0f322b96f44819",
+        "type": "function",
+        "z": "9f596410aa34be82",
+        "g": "46264e5862023d8d",
+        "name": "get users",
+        "func": "const {knex, payload } = msg \n\nconst result = await knex('yearlyDevelopers')\n    .select('*')\n    \n\nreturn {\n    ...msg,\n    payload: result\n};",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 900,
+        "wires": [
+            [
+                "390b27dcaa6419f7"
+            ]
+        ]
+    },
+    {
+        "id": "0cf43dbce548c7c7",
+        "type": "inject",
+        "z": "9f596410aa34be82",
+        "g": "46264e5862023d8d",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 190,
+        "y": 900,
+        "wires": [
+            [
+                "c1fcf9baea537909"
+            ]
+        ]
+    },
+    {
+        "id": "c1fcf9baea537909",
+        "type": "knex-node",
+        "z": "9f596410aa34be82",
+        "g": "46264e5862023d8d",
+        "connection": "7e12b26bfe008698",
+        "x": 380,
+        "y": 900,
+        "wires": [
+            [
+                "7c0f322b96f44819"
+            ]
+        ]
+    },
+    {
+        "id": "390b27dcaa6419f7",
+        "type": "debug",
+        "z": "9f596410aa34be82",
+        "g": "46264e5862023d8d",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 750,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "8ffd1ba6a684326b",
+        "type": "comment",
+        "z": "9f596410aa34be82",
+        "g": "7b388c7d878457b7",
+        "name": "process data",
+        "info": "",
+        "x": 150,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "5d69f6743d2cbeae",
+        "type": "comment",
+        "z": "9f596410aa34be82",
+        "g": "46264e5862023d8d",
+        "name": "check results",
+        "info": "",
+        "x": 160,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "7e12b26bfe008698",
+        "type": "knex-config",
+        "connectionName": "db-connection-1734030197597",
+        "uri": "postgres://erickwendel:erick@postgres:5432/ewacademy",
+        "searchPath": "[\"public\"]",
+        "ssl": false,
+        "timezone": "${TZ}",
+        "poolMin": "2",
+        "poolMax": "10",
+        "acquireTimeoutMillis": "30000",
+        "createTimeoutMillis": "30000",
+        "idleTimeoutMillis": "1000",
+        "additionalKnexConf": "{}"
+    },
+    {
+        "id": "9f88a780973e5923",
+        "type": "google-sheets-config",
+        "name": "nodered-sheet-to-json@ew-academy.iam.gserviceaccount.com"
+    }
+]
